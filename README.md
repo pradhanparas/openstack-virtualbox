@@ -73,7 +73,7 @@ source keystone_admin
 * Create networks and a router
 
     ```sh
-    ##Create a public/external network
+    # Create a public/external network
     neutron net-create public --provider:network_type flat --provider:physical_network extnet --router:external
     
     neutron subnet-create public --name public_subnet --allocation-pool start=192.168.56.100,end=192.168.56.200 --disable-dhcp --gateway 192.168.56.1 192.168.56.0/24
