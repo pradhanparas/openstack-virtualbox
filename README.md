@@ -117,8 +117,8 @@ source keystone_admin
     scrub-anchor "com.apple/*"
     nat-anchor "com.apple/*"
     rdr-anchor "com.apple/*"
-    nat on {en3, en0} proto {tcp, udp, icmp} from 192.168.122.0/24 to any -> {en3, en0}
-    pass from {lo0, 192.168.122.0/24} to any keep state
+    nat on {en3, en0} proto {tcp, udp, icmp} from 192.168.56.0/24 to any -> {en3, en0}
+    pass from {lo0, 192.168.56.0/24} to any keep state
     dummynet-anchor "com.apple/*"
     anchor "com.apple/*"
     load anchor "com.apple" from "/etc/pf.anchors/com.apple"
