@@ -68,7 +68,7 @@
 
 * systemctl restart network
 * Enable Promiscuous mode on host interface : ip link set enp0s3 promisc on
-source keystone_admin
+* source keystone_admin
 * Cluster status: nova service-list
 * Create networks and a router
 
