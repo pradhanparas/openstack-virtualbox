@@ -111,3 +111,15 @@ source keystone_admin
     grep -E -i "error|trace" /var/log/neutron/server.log
     cat /etc/neutron/plugins/ml2/openvswitch_agent.ini and make sure bridge mapping     looks exactly like 'bridge_mappings=extnet:br-ex
     ```
+
+* If your virtualbox runs on MacOS add the following in /etc/pf.conf and run pfctl -e -f /etc/pf.conf. In this example en3 and en0 are my ethernet and wifi interfaces
+    ```sh
+    scrub-anchor "com.apple/*"
+    nat-anchor "com.apple/*"
+    rdr-anchor "com.apple/*"
+    nat on {en3, en0} proto {tcp, udp, icmp} from 192.168.122.0/24 to any -> {en3, en0}
+    pass from {lo0, 192.168.122.0/24} to any keep state
+    dummynet-anchor "com.apple/*"
+    anchor "com.apple/*"
+    load anchor "com.apple" from "/etc/pf.anchors/com.apple"
+    ```
