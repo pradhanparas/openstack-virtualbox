@@ -103,7 +103,7 @@ source keystone_admin
     neutron port-update routerid --admin-state-up False
     neutron port-update routerid --admin-state-up True
     ```
-* Login to dashboard at http://192.168.56.12/dashboard and create virtual machines
+* Login to dashboard at http://192.168.56.12/dashboard using admin/openstack nd create virtual machines
 * If you see No valid host found error, run: systemctl restart openstack-nova-compute.service and create the instance again
 
 * Troubleshooting neutron
