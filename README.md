@@ -109,6 +109,11 @@
     neutron port-update routerid --admin-state-up True
     ```
 * Login to dashboard at http://192.168.56.12/dashboard using admin/openstack nd create virtual machines
+
+* Cirros cloud image download link http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img . Username: cirros Password: gocubsgo
+
+* After you login to the dashboard, enable ICMP and other required tcp ports
+
 * If you see No valid host found error, run: systemctl restart openstack-nova-compute.service and create the instance again
 
 * Troubleshooting neutron
