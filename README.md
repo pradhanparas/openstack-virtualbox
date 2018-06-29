@@ -11,8 +11,8 @@
     iptables --append FORWARD --in-interface vboxnet0 -j ACCEPT
     ```
 
-* Create a virtualbox vm with 6 cpu cores, 8 GB memory and 100GB disk
-* Under Network Settings of the vm, change from NAT to Host-only Adapter. It should select vboxne0 by default. Click Advanced and Select Allow All in Promiscuous Mode
+* Create a CentOS 7 64 bit virtualbox vm with 6 cpu cores, 8 GB memory and 100GB disk
+* Under Network Settings of the vm, change from NAT to Host-only Adapter. It should select vboxnet:0 by default. Click Advanced and Select Allow All in Promiscuous Mode
 * Power on the vm, run 'yum update -y" and reboot
 * Edit /etc/sysconfig/network-scripts/ifcfg-enp0s3 and change DHCP to manual IP . The entry should look like
 
@@ -77,6 +77,11 @@
     neutron net-create public --provider:network_type flat --provider:physical_network extnet --router:external
     
     neutron subnet-create public --name public_subnet --allocation-pool start=192.168.56.100,end=192.168.56.200 --disable-dhcp --gateway 192.168.56.1 192.168.56.0/24
+    
+    # Create private network
+    neutron net-create private
+    
+    neutron subnet-create private --name private_subnet --allocation-pool start=10.10.1.100,end=10.10.1.200 10.10.1.0/24
 
     # Create router
     neutron router-create router1 --ha False
