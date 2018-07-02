@@ -21,7 +21,7 @@
     IPADDR='192.168.56.12'
     NETMASK='255.255.255.0'
     GATEWAY='192.168.56.1'
-    DNS1='10.58.8.50'
+    DNS1='8.8.8.8'
     ```
     
 * systemctl restart network
@@ -49,7 +49,7 @@
     DEVICETYPE=ovs
     TYPE=OVSBridge
     BOOTPROTO=static
-    DNS1=10.58.8.50
+    DNS1=8.8.8.8
     ONBOOT=yes
     IPADDR=192.168.56.12
     PREFIX=24
