@@ -133,3 +133,7 @@
     anchor "com.apple/*"
     load anchor "com.apple" from "/etc/pf.anchors/com.apple"
     ```
+* NAT on Windows 10
+    ```sh
+    New-NetNat –Name NATNetwork –InternalIPInterfaceAddressPrefix 192.168.56.0/24 –Verbose
+    ```
